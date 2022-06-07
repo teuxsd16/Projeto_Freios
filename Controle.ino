@@ -33,8 +33,10 @@ void loop()
     Serial.println("C"); 
 
     lcd.setCursor(0,0); 
-    lcd.print("Temperatura:"); 
-    lcd.setCursor(0,1); 
-    lcd.print(termopar.readCelsius()); 
+    lcd.print("Temp:"); 
+    lcd.setCursor(8,0); 
+    lcd.print(termopar.readCelsius());
+    lcd.setCursor(14,0);
+    lcd.print("C"); 
     delay(1000);
 }
