@@ -1,3 +1,4 @@
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\FUNCAO PERIGO\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 void perigo() \\para quando o freio passar da temp. de perda de freio
 {
 lcd.setCursor(0,1);
@@ -7,7 +8,7 @@ lcd.setCursor(0,1); \\ faz a tela ficar piscando
 lcd.println(" "); \\ apaga o que foi escrito anteriormente para ficar piscando
 delay(500);
 }
-
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\FUNCAO CUIDADO\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 void cuidado() \\ para quando o freio estiver quase no limite
 {
 lcd.setCursor(0,1);
@@ -17,21 +18,23 @@ lcd.setCursor(0,1);
 lcd.println("CUIDADO"); \\ muda entre PRE LIMITE e CUIDADO
 delay(500);
 }
-
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\FUNCAO TEMPERATURA MEDIANA\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 void normal() \\para quando o feio estiver nem quente nem frio
 {
 lcd.setCursor(0,1);
 lcd.println("FREIO Cond. Nor"); \\ freio em condicao normal
 }
-
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\FUNCAO TEMPERATURA BAIXA\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 void suavedade() \\ para quando o freio nao estiver quente
 {
 lcd.setCursor(0,1);
 lcd.println("Freio resfriado");
 }
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ CRIACAO DE UMA VARIAVEL PRA LEITURA DE TEMPERATURA \\\\\\\\\\\\\\\\\\\\\
 
 Leitura = termopar.readCelsius();
 
+\\ mudanca no display
 switch (Leitura) {
 	\\normal
 	case >=100 && <=400:
