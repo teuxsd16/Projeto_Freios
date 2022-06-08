@@ -22,6 +22,10 @@ void setup()
     lcd.print("Inicializando...");
     delay(3000);
     lcd.clear();
+    pinMode(7,OUTPUT); // buzzer
+    pinMode(11,OUTPUT); // led verde
+    pinMode(12,OUTPUT); // led amarelo
+    pinMode(13,OUTPUT); // led vermelho
   
 }
  
