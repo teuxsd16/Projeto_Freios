@@ -1,6 +1,9 @@
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\FUNCAO PERIGO\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+/*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\FUNCAO PERIGO\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 void perigo() \\para quando o freio passar da temp. de perda de freio
 {
+digitalWrite(11, LOW);
+digitalWrite(12, LOW);
+digitalWrite(13, HIGH);
 lcd.setCursor(0,1);
 lcd.println("FREIO SUPERAQ."); \\Freio superaquecido
 delay(500);
@@ -8,9 +11,12 @@ lcd.setCursor(0,1); \\ faz a tela ficar piscando
 lcd.println(" "); \\ apaga o que foi escrito anteriormente para ficar piscando
 delay(500);
 }
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\FUNCAO CUIDADO\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+/*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\FUNCAO CUIDADO\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 void cuidado() \\ para quando o freio estiver quase no limite
 {
+digitalWrite(11, LOW);
+digitalWrite(12, HIGH);
+digitalWrite(13, LOW);
 lcd.setCursor(0,1);
 lcd.println("PRE LIMITE");
 delay(500);
@@ -18,38 +24,42 @@ lcd.setCursor(0,1);
 lcd.println("CUIDADO"); \\ muda entre PRE LIMITE e CUIDADO
 delay(500);
 }
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\FUNCAO TEMPERATURA MEDIANA\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+/*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\FUNCAO TEMPERATURA MEDIANA\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 void normal() \\para quando o feio estiver nem quente nem frio
 {
 lcd.setCursor(0,1);
 lcd.println("FREIO Cond. Nor"); \\ freio em condicao normal
+digitalWrite(11, HIGH);
+digitalWrite(12, LOW);
+digitalWrite(13, LOW);
 }
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\FUNCAO TEMPERATURA BAIXA\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+/*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\FUNCAO TEMPERATURA BAIXA\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 void suavedade() \\ para quando o freio nao estiver quente
 {
 lcd.setCursor(0,1);
 lcd.println("Freio resfriado");
+digitalWrite(11, HIGH);
+digitalWrite(12, LOW);
+digitalWrite(13, LOW);
 }
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ CRIACAO DE UMA VARIAVEL PRA LEITURA DE TEMPERATURA \\\\\\\\\\\\\\\\\\\\\
+/*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ CRIACAO DE UMA VARIAVEL PRA LEITURA DE TEMPERATURA \\\\\\\\\\\\\\\\\\\\\*/
 
 Leitura = termopar.readCelsius();
 
-\\ mudanca no display
-switch (Leitura) {
-	\\normal
-	case >=100 && <=400:
+/* mudanca no display */
+
+	if Leitura >= 0 && Leitura <= 100 { 
+	suavedade();
+} 
+
+	else if Leitura >= 101 && Leitura <= 449 { 
 	normal();
-	break;
-	\\cuidado	
-	case >=401 && <=600:
+} 
+
+	else if Leitura >= 450 && Leitura <= 599 { 
 	cuidado();
-	break;
-	\\perigo	
-	case >=601:
+} 
+
+	else if Leitura >= 600 { 
 	perigo();
-	break;
-	\\freio resfriado
-	default:
-	suavidade();
-	break;
 }
