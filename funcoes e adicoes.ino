@@ -8,12 +8,18 @@ lcd.setCursor(0,1);
 lcd.println("FREIO SUPERAQ."); //Freio superaquecido
 tone(7,262,250);
 tone(7,294,250);
-delay(500);
+	now = millis()
+while(millis() < now + 500) {
+    // Pausa de 500 ms
+  }
 lcd.setCursor(0,1); // faz a tela ficar piscando
 lcd.println(" "); // apaga o que foi escrito anteriormente para ficar piscando
 tone(7,262,250);
 tone(7,294,250);
-delay(500);
+	 now = millis()
+	while(millis() < now + 500) {
+    // Pausa de 500 ms
+  }
 }
 /*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\FUNCAO CUIDADO\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 void cuidado() // para quando o freio estiver quase no limite
@@ -24,11 +30,17 @@ digitalWrite(13, LOW);
 lcd.setCursor(0,1);
 lcd.println("PRE LIMITE");
 tone(7,440,500); // ativa o buzzer numa frequencia 440Hz (Lá) por 500 ms. tone(pino,freq.,tempo em ms)
-delay(500);
+now = millis()
+while(millis() < now + 500) {
+    // Pausa de 500 ms
+  }
 lcd.setCursor(0,1);
 lcd.println("CUIDADO"); // muda entre PRE LIMITE e CUIDADO
 tone(7,440,500);
-delay(500);
+now = millis()
+while(millis() < now + 500) {
+    // Pausa de 500 ms
+  }
 }
 /*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\FUNCAO TEMPERATURA MEDIANA\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 void normal() //para quando o feio estiver nem quente nem frio
@@ -57,7 +69,10 @@ soma = 0;
 	for (int i=0; i<=4; i++) {
 	Leitura = termopar.readCelsius();
 	soma = soma + Leitura;
-	delay(200);
+	now = millis()
+while(millis() < now + 200) {
+    // Pausa de 200 ms
+  }
 }
 
 Leitura = soma/5; // media final entre os valores
