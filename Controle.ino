@@ -26,6 +26,7 @@ void setup()
     pinMode(11,OUTPUT); // led verde
     pinMode(12,OUTPUT); // led amarelo
     pinMode(13,OUTPUT); // led vermelho
+    unsigned long now = 0; // variável para usar o millis como delay
   
 }
  
@@ -42,5 +43,8 @@ void loop()
     lcd.print(termopar.readCelsius());
     lcd.setCursor(14,0);
     lcd.print("C"); 
-    delay(1000);
+    now = millis();
+	while(millis() < now + 1000) {
+    // Pausa de 1s
+  }
 }
