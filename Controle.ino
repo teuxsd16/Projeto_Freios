@@ -118,7 +118,7 @@ void loop()
    /*-------------------------------------Média móvel--------------------------------------*/
     read_sensor=termopar.readCelsius();
     buffer.push(read_sensor);
-    if (millis() - time >= 5) {
+    if (millis() - time >= 2) {
     time = millis();
     float avg = 0.0;
     // the following ensures using the right type for the index variable
