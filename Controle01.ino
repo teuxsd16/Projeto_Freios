@@ -130,19 +130,19 @@ void loop(){
     lcd.print("C");
     
     /* Teste de temperatura */
-    if (read_sensor >= 0 && read_sensor <200) { 
+    if (read_sensor <=100) { 
       freio_frio();
     } 
     
-    else if(read_sensor >= 200 && read_sensor < 350) { 
+    else if(read_sensor > 100 && read_sensor <= 250) { 
         normal();
     } 
     
-    else if(read_sensor >= 350 && read_sensor <= 500) { 
+    else if(read_sensor > 250 && read_sensor <= 400) { 
       cuidado();
     } 
     
-    else if(read_sensor > 500) { 
+    else if(read_sensor > 400) { 
       perigo();
     }
 
