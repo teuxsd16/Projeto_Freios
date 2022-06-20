@@ -134,11 +134,11 @@ void loop(){
       freio_frio();
     } 
     
-    else if(read_sensor > 100 && read_sensor <= 250) { 
+    else if(read_sensor > 100 && read_sensor <= 150) { 
         normal();
     } 
     
-    else if(read_sensor > 250 && read_sensor <= 400) { 
+    else if(read_sensor > 150 && read_sensor <= 400) { 
       cuidado();
     } 
     
