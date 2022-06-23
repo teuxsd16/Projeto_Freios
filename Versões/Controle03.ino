@@ -53,7 +53,7 @@ void cuidado(){
        now1=millis();
        lcd.setCursor(0,1);
        lcd.print("Perda de freio!         ");
-       if(qt1<2){
+       if(qt1<=2){
           tone(buzzer,1500, 750);
        }
        qt1++;
